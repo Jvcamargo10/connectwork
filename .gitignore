@@ -1,0 +1,50 @@
+# ============================================================
+#  ConnectWork — .gitignore
+# ============================================================
+
+# ──────────────────────────────────────────
+#  🔒 CREDENCIAIS — NUNCA COMMITAR
+# ──────────────────────────────────────────
+config.js             # contém URL e chave do Supabase
+js/config.js          # idem, caso arquivos sejam movidos para js/
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+secrets/
+
+# ──────────────────────────────────────────
+#  Sistema operacional
+# ──────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+
+# ──────────────────────────────────────────
+#  Editores
+# ──────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ──────────────────────────────────────────
+#  Node / npm (se usar build futuramente)
+# ──────────────────────────────────────────
+node_modules/
+dist/
+.cache/
+npm-debug.log*
+yarn-error.log*
+
+# ──────────────────────────────────────────
+#  Logs
+# ──────────────────────────────────────────
+*.log
+logs/

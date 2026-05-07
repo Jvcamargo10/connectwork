@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConnectWork — Plataforma de Serviços</title>
+<meta name="description" content="Conecte empresas a profissionais qualificados. Eventos, serviços e contratações com total transparência.">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Estilos -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="tc"></div>
+<div id="pb" style="width:0"></div>
+<div id="mov" onclick="if(event.target===this)mclose()"><div id="mbox"><div id="mc"></div></div></div>
+<div class="sbd" id="sbd" onclick="sbClose()"></div>
+
+<!-- ====== HOME ====== -->
+<div class="screen on" id="S-home">
+  <nav class="nav">
+    <div class="logo"><div class="logo-ic">CW</div>Connect<em>Work</em></div>
+    <div class="nav-r">
+      <button class="btn btn-g" onclick="go('S-login-choose')">Entrar</button>
+      <button class="btn btn-grad" onclick="go('S-reg-choose')">Cadastrar grátis</button>
+    </div>
+  </nav>
+  <main style="flex:1;display:flex;flex-direction:column">
+    <section class="hero">
+      <canvas id="canvas-p"></canvas>
+      <div class="hfloat hf1">✅ +47 vagas abertas hoje</div>
+      <div class="hfloat hf2">🏆 Profissional #1 contratado</div>
+      <div class="hfloat hf3">💰 Taxa sempre clara</div>
+      <div class="hero-content">
+        <div class="hero-badge"><span class="badge-dot"></span>Plataforma de Serviços Profissionais</div>
+        <h1>Conecte talento<br>com <span class="hl">oportunidade</span></h1>
+        <p class="sub">Empresas encontram profissionais qualificados para eventos e serviços. Profissionais encontram trabalho com segurança e transparência total.</p>
+        <div class="hero-cta">
+          <button class="btn btn-grad btn-lg" onclick="go('S-reg-choose')">Começar gratuitamente →</button>
+          <button class="btn btn-o btn-lg" onclick="go('S-login-choose')">Já tenho conta</button>
+        </div>
+        <div class="choose-grid">
+          <div class="cc" onclick="go('S-user-reg')">
+            <div class="cc-icon ciu">👤</div>
+            <h3>Sou profissional</h3>
+            <p>Encontre eventos no seu nicho, candidate-se e seja contratado com segurança.</p>
+            <div class="cc-foot"><span class="pill pu" style="font-size:.72rem">Cadastrar grátis</span><span style="color:var(--g);font-size:1.1rem">→</span></div>
+          </div>
+          <div class="cc comp" onclick="go('S-company-reg')">
+            <div class="cc-icon cic">🏢</div>
+            <h3>Sou empresa</h3>
+            <p>Publique eventos, receba currículos e contrate os melhores profissionais.</p>
+            <div class="cc-foot"><span class="pill pc" style="font-size:.72rem">Cadastrar grátis</span><span style="color:var(--acc);font-size:1.1rem">→</span></div>
+          </div>
+        </div>
+        <div class="stats-row">
+          <div class="stat"><div class="n">2<span class="suf">k+</span></div><div class="l">Profissionais ativos</div></div>
+          <div class="stat"><div class="n">380<span class="suf">+</span></div><div class="l">Empresas cadastradas</div></div>
+          <div class="stat"><div class="n">8<span class="suf">k+</span></div><div class="l">Serviços realizados</div></div>
+          <div class="stat"><div class="n">97<span class="suf">%</span></div><div class="l">Satisfação geral</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" style="background:var(--bg2)">
+      <div class="sec-inner">
+        <div class="sec-lbl">Nichos disponíveis</div>
+        <div class="sec-title">Para cada área, uma oportunidade</div>
+        <div class="sec-sub">Profissionais e empresas de todos os setores do mercado</div>
+        <div class="niches-scroll" id="niches-scroll"></div>
+        <div style="text-align:center;margin-top:1.5rem"><button class="btn btn-o" onclick="go('S-reg-choose')">Ver todas as oportunidades →</button></div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="sec-inner">
+        <div class="sec-lbl">Como funciona</div>
+        <div class="sec-title">Simples do início ao fim</div>
+        <div class="sec-sub">Do cadastro à contratação em poucos passos</div>
+        <div class="steps-grid">
+          <div class="step-c"><div class="step-n">1</div><h4>Crie sua conta</h4><p>Cadastre-se como profissional ou empresa em menos de 2 minutos. 100% gratuito.</p></div>
+          <div class="step-c"><div class="step-n">2</div><h4>Configure seu perfil</h4><p>Profissionais enviam currículo e definem habilidades por nicho. Empresas descrevem seu negócio.</p></div>
+          <div class="step-c"><div class="step-n">3</div><h4>Encontre oportunidades</h4><p>Navegue pelos eventos disponíveis e candidate-se com 1 clique. Currículo enviado automaticamente.</p></div>
+          <div class="step-c"><div class="step-n">4</div><h4>Seja contratado</h4><p>A empresa analisa seu currículo e confirma a contratação diretamente pela plataforma.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" style="background:var(--bg2)">
+      <div class="sec-inner">
+        <div class="sec-lbl">Transparência total</div>
+        <div class="sec-title">Sem surpresas nas taxas</div>
+        <div class="sec-sub">Você sabe exatamente quanto paga antes de confirmar qualquer evento</div>
+        <div class="fee-box">
+          <h3>💰 Como funciona a taxa</h3>
+          <p>A ConnectWork cobra uma <strong style="color:var(--acc)">taxa de 10%</strong> sobre o valor total pago pela empresa. Esta taxa é exibida com clareza antes de qualquer publicação de evento.</p>
+          <p style="margin-top:.65rem">O profissional <strong style="color:var(--g)">sempre recebe o valor integral</strong> combinado — a taxa é responsabilidade exclusiva da empresa contratante.</p>
+          <div class="fee-eg">
+            <div class="fe"><div class="fl">Valor ao profissional</div><div class="fv" style="color:var(--g)">R$ 1.400</div></div>
+            <div class="fe"><div class="fl">Taxa plataforma (10%)</div><div class="fv" style="color:var(--acc)">+ R$ 140</div></div>
+            <div class="fe"><div class="fl">Total da empresa</div><div class="fv">= R$ 1.540</div></div>
+          </div>
+          <div style="margin-top:1.25rem;text-align:center"><button class="btn btn-a" onclick="go('S-company-reg')">Cadastrar minha empresa →</button></div>
+        </div>
+      </div>
+    </section>
+
+    <footer style="background:var(--bg);border-top:1px solid var(--bd);padding:2.5rem 2rem;text-align:center">
+      <div class="logo" style="justify-content:center;margin-bottom:.75rem"><div class="logo-ic">CW</div>Connect<em>Work</em></div>
+      <p style="font-size:.82rem;color:var(--tx3)">© 2026 ConnectWork · Plataforma de Serviços Profissionais · Conectando empresas e profissionais em todo o Brasil</p>
+    </footer>
+  </main>
+</div>
+
+<!-- ====== CHOOSERS ====== -->
+<div class="screen" id="S-login-choose">
+  <nav class="nav"><div class="logo"><div class="logo-ic">CW</div>Connect<em>Work</em></div><button class="btn btn-g" onclick="go('S-home')">← Início</button></nav>
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:2rem;background:radial-gradient(ellipse at 50% 30%,rgba(29,184,115,.07) 0%,transparent 60%)">
+    <div style="width:100%;max-width:360px">
+      <div style="text-align:center;margin-bottom:2rem"><h2 style="font-size:1.6rem">Como você quer entrar?</h2><p style="color:var(--tx2);font-size:.88rem;margin-top:.4rem">Selecione o tipo da sua conta</p></div>
+      <div style="display:flex;flex-direction:column;gap:.85rem">
+        <div class="cc" style="padding:1.25rem" onclick="go('S-user-login')"><div style="display:flex;align-items:center;gap:.9rem"><div class="cc-icon ciu" style="width:44px;height:44px;border-radius:12px;font-size:1.2rem;flex-shrink:0;margin:0">👤</div><div style="flex:1"><div style="font-weight:700;font-size:.92rem">Entrar como Profissional</div><div style="font-size:.78rem;color:var(--tx2);margin-top:.18rem">Acesse eventos e oportunidades</div></div><span style="color:var(--g);font-size:1.1rem">→</span></div></div>
+        <div class="cc comp" style="padding:1.25rem" onclick="go('S-company-login')"><div style="display:flex;align-items:center;gap:.9rem"><div class="cc-icon cic" style="width:44px;height:44px;border-radius:12px;font-size:1.2rem;flex-shrink:0;margin:0">🏢</div><div style="flex:1"><div style="font-weight:700;font-size:.92rem">Entrar como Empresa</div><div style="font-size:.78rem;color:var(--tx2);margin-top:.18rem">Gerencie eventos e candidatos</div></div><span style="color:var(--acc);font-size:1.1rem">→</span></div></div>
+        <button class="btn btn-g btn-fw" onclick="go('S-home')">← Voltar à home</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="screen" id="S-reg-choose">
+  <nav class="nav"><div class="logo"><div class="logo-ic">CW</div>Connect<em>Work</em></div><button class="btn btn-g" onclick="go('S-home')">← Início</button></nav>
+  <div style="flex:1;display:flex;align-items:center;justify-content:center;padding:2rem;background:radial-gradient(ellipse at 50% 30%,rgba(29,184,115,.07) 0%,transparent 60%)">
+    <div style="width:100%;max-width:360px">
+      <div style="text-align:center;margin-bottom:2rem"><h2 style="font-size:1.6rem">Criar conta como:</h2><p style="color:var(--tx2);font-size:.88rem;margin-top:.4rem">Gratuito · Sem cartão de crédito</p></div>
+      <div style="display:flex;flex-direction:column;gap:.85rem">
+        <div class="cc" style="padding:1.25rem" onclick="go('S-user-reg')"><div style="display:flex;align-items:center;gap:.9rem"><div class="cc-icon ciu" style="width:44px;height:44px;border-radius:12px;font-size:1.2rem;flex-shrink:0;margin:0">👤</div><div style="flex:1"><div style="font-weight:700;font-size:.92rem">Sou Profissional</div><div style="font-size:.78rem;color:var(--tx2);margin-top:.18rem">Candidate-se a eventos e serviços</div></div><span style="color:var(--g);font-size:1.1rem">→</span></div></div>
+        <div class="cc comp" style="padding:1.25rem" onclick="go('S-company-reg')"><div style="display:flex;align-items:center;gap:.9rem"><div class="cc-icon cic" style="width:44px;height:44px;border-radius:12px;font-size:1.2rem;flex-shrink:0;margin:0">🏢</div><div style="flex:1"><div style="font-weight:700;font-size:.92rem">Sou Empresa</div><div style="font-size:.78rem;color:var(--tx2);margin-top:.18rem">Publique eventos e contrate</div></div><span style="color:var(--acc);font-size:1.1rem">→</span></div></div>
+        <button class="btn btn-g btn-fw" onclick="go('S-home')">← Voltar à home</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== USER LOGIN ====== -->
+<div class="screen" id="S-user-login">
+  <nav class="nav"><div class="logo"><div class="logo-ic">CW</div>Connect<em>Work</em></div><button class="btn btn-g" onclick="go('S-home')">← Início</button></nav>
+  <div class="auth-wrap">
+    <div class="auth-l">
+      <div class="auth-l-in">
+        <div class="auth-il ilu">👤</div>
+        <h2>Bem-vindo de volta!</h2>
+        <p>Acesse sua conta e veja os eventos disponíveis para você hoje.</p>
+        <div class="auth-feat">🎯 Eventos disponíveis em tempo real</div>
+        <div class="auth-feat">📄 Envio de currículo em 1 clique</div>
+        <div class="auth-feat">💰 Pagamentos sempre transparentes</div>
+      </div>
+    </div>
+    <div class="auth-r">
+      <div class="auth-box">
+        <h2>Entrar como profissional</h2>
+        <p class="sub">Acesse sua conta para ver oportunidades de trabalho</p>
+        <div id="ul-al"></div>
+        <div class="fg"><label>E-mail <span class="req">*</span></label><input type="email" id="ul-email" class="inp" placeholder="seu@email.com" autocomplete="email"></div>
+        <div class="fg"><label>Senha <span class="req">*</span></label><input type="password" id="ul-pass" class="inp" placeholder="••••••••" onkeydown="if(event.key==='Enter')ulLogin()"></div>
+        <button class="btn btn-p btn-fw btn-lg" id="ul-btn" onclick="ulLogin()">Entrar na plataforma</button>
+        <div class="divider-lbl"><span>ou</span></div>
+        <div class="auth-links">Não tem conta? <button onclick="go('S-user-reg')">Cadastrar gratuitamente</button><br>É empresa? <button onclick="go('S-company-login')">Login empresarial →</button></div>
+        <div class="demo-box"><span>💡</span><span><strong>Demo:</strong> <code>demo@user.com</code> / <code>demo123</code></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== USER REGISTER ====== -->
+<div class="screen" id="S-user-reg">
+  <nav class="nav"><div class="logo"><div class="logo-ic">CW</div>Connect<em>Work</em></div><button class="btn btn-g" onclick="go('S-home')">← Início</button></nav>
+  <div class="auth-wrap" style="align-items:start">
+    <div class="auth-l" style="display:flex">
+      <div class="auth-l-in">
+        <div class="auth-il ilu">🚀</div>
+        <h2>Encontre seu próximo trabalho</h2>
+        <p>Cadastre-se, envie seu currículo e receba propostas das melhores empresas.</p>
+        <div class="auth-feat">🏷️ Habilidades organizadas por nicho</div>
+        <div class="auth-feat">📊 Calendário de serviços personalizado</div>
+        <div class="auth-feat">📰 Novidades do seu setor</div>
+      </div>
+    </div>
+    <div class="auth-r" style="align-items:start">
+      <div class="auth-box" style="max-width:460px;padding-bottom:2rem">
+        <h2>Criar conta — Profissional</h2>
+        <p class="sub">Preencha seus dados · 100% gratuito</p>
+        <div id="ur-al"></div>
+        <div class="f2">
+          <div class="fg"><label>Nome completo <span class="req">*</span></label><input type="text" id="ur-name" class="inp" placeholder="Seu nome"></div>
+          <div class="fg"><label>CPF <span class="req">*</span></label><input type="text" id="ur-cpf" class="inp" placeholder="000.000.000-00" maxlength="14" oninput="maskCPF(this)"></div>
+        </div>
+        <div class="f2">
+          <div class="fg"><label>E-mail <span class="req">*</span></label><input type="email" id="ur-email" class="inp" placeholder="seu@email.com"></div>
+          <div class="fg"><label>Telefone</label><input type="text" id="ur-phone" class="inp" placeholder="(11) 99999-9999" oninput="maskPhone(this)"></div>
+        </div>
+        <div class="f2">
+          <div class="fg"><label>Cidade <span class="req">*</span></label><input type="text" id="ur-city" class="inp" placeholder="São Paulo, SP"></div>
+          <div class="fg"><label>Nascimento</label><input type="date" id="ur-birth" class="inp"></div>
+        </div>
+        <div class="fg"><label>Nicho / Área de atuação <span class="req">*</span></label><select id="ur-niche" class="inp" onchange="urNicheChange()"><option value="">Selecione seu nicho...</option></select></div>
+        <div class="fg" id="ur-niche-cw" style="display:none">
+          <label>Descreva seu nicho <span class="req">*</span></label>
+          <input type="text" id="ur-niche-c" class="inp" placeholder="Ex: Artesanato, Pet Care...">
+          <div class="fg-hint">Este nicho será adicionado à plataforma para outros profissionais.</div>
+        </div>
+        <div id="ur-skills-sec" style="display:none">
+          <div class="fg" style="margin-bottom:.4rem"><label>Habilidades <span class="req">*</span> — clique para selecionar</label><div class="skills-wrap" id="ur-sk"></div></div>
+          <div style="display:flex;gap:.5rem;margin-bottom:.85rem"><input type="text" id="ur-sk-x" class="inp" placeholder="Adicionar outra habilidade..." style="flex:1"><button class="btn btn-o btn-sm" onclick="urAddSkill()">+ Adicionar</button></div>
+        </div>
+        <div class="fg">
+          <label>Currículo (PDF, Word ou imagem) <span class="req">*</span></label>
+          <div class="fu" id="ur-cv-drop"><input type="file" id="ur-cv-file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" onchange="handleCV('ur-cv-file','ur-cv-prev','urCvData')"><div class="fu-ic">📄</div><h4>Arraste ou clique para enviar</h4><p>PDF, Word (.doc/.docx) ou imagem (PNG/JPG) · Máx. 5MB</p></div>
+          <div id="ur-cv-prev"></div>
+        </div>
+        <div class="f2">
+          <div class="fg"><label>Senha <span class="req">*</span></label><input type="password" id="ur-pass" class="inp" placeholder="Mín. 6 caracteres"></div>
+          <div class="fg"><label>Confirmar senha <span class="req">*</span></label><input type="password" id="ur-pass2" class="inp" placeholder="Repita"></div>
+        </div>
+        <button class="btn btn-grad btn-fw btn-lg" id="ur-btn" onclick="urRegister()">Criar minha conta grátis →</button>
+        <div class="auth-links">Já tem conta? <button onclick="go('S-user-login')">Entrar</button> · É empresa? <button onclick="go('S-company-reg')">Cadastro empresarial</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== COMPANY LOGIN ====== -->
+<div class="screen" id="S-company-login">
+  <nav class="nav"><div class="logo"><div class="logo-ic">CW</div>Connect<em>Work</em></div><button class="btn btn-g" onclick="go('S-home')">← Início</button></nav>
+  <div class="auth-wrap">
+    <div class="auth-l co">
+      <div class="auth-l-in">
+        <div class="auth-il ilc">🏢</div>
+        <h2>Painel Empresarial</h2>
+        <p>Gerencie eventos, analise currículos e contrate os melhores profissionais do mercado.</p>
+        <div class="auth-feat">📋 Publique eventos em minutos</div>
+        <div class="auth-feat">📄 Receba e analise currículos</div>
+        <div class="auth-feat">💰 Taxa transparente de 10%</div>
+      </div>
+    </div>
+    <div class="auth-r">
+      <div class="auth-box">
+        <h2>Entrar como empresa</h2>
+        <p class="sub">Acesse sua conta empresarial</p>
+        <div id="cl-al"></div>
+        <div class="fg"><label>E-mail <span class="req">*</span></label><input type="email" id="cl-email" class="inp" placeholder="empresa@email.com"></div>
+        <div class="fg"><label>Senha <span class="req">*</span></label><input type="password" id="cl-pass" class="inp" placeholder="••••••••" onkeydown="if(event.key==='Enter')clLogin()"></div>
+        <button class="btn btn-a btn-fw btn-lg" id="cl-btn" onclick="clLogin()">Acessar painel empresarial</button>
+        <div class="divider-lbl"><span>ou</span></div>
+        <div class="auth-links">Não tem conta? <button onclick="go('S-company-reg')">Cadastrar empresa</button><br>É profissional? <button onclick="go('S-user-login')">Login profissional →</button></div>
+        <div class="demo-box"><span>💡</span><span><strong>Demo:</strong> <code>demo@empresa.com</code> / <code>demo123</code></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== COMPANY REGISTER ====== -->
+<div class="screen" id="S-company-reg">
+  <nav class="nav"><div class="logo"><div class="logo-ic">CW</div>Connect<em>Work</em></div><button class="btn btn-g" onclick="go('S-home')">← Início</button></nav>
+  <div class="auth-wrap" style="align-items:start">
+    <div class="auth-l co" style="display:flex">
+      <div class="auth-l-in">
+        <div class="auth-il ilc">⚡</div>
+        <h2>Sua empresa no próximo nível</h2>
+        <p>Contrate profissionais verificados para eventos com total transparência de valores.</p>
+        <div class="auth-feat">🎯 Profissionais filtrados por nicho</div>
+        <div class="auth-feat">📊 Dashboard com métricas completas</div>
+        <div class="auth-feat">🔒 Contratação segura e rastreável</div>
+      </div>
+    </div>
+    <div class="auth-r" style="align-items:start">
+      <div class="auth-box" style="max-width:460px;padding-bottom:2rem">
+        <h2>Cadastrar Empresa</h2>
+        <p class="sub">Preencha os dados para começar a contratar</p>
+        <div id="cr-al"></div>
+        <div class="f2">
+          <div class="fg"><label>Nome da empresa <span class="req">*</span></label><input type="text" id="cr-name" class="inp" placeholder="Empresa Ltda."></div>
+          <div class="fg"><label>CNPJ <span class="req">*</span></label><input type="text" id="cr-cnpj" class="inp" placeholder="00.000.000/0001-00" maxlength="18" oninput="maskCNPJ(this)"></div>
+        </div>
+        <div class="f2">
+          <div class="fg"><label>E-mail <span class="req">*</span></label><input type="email" id="cr-email" class="inp" placeholder="contato@empresa.com"></div>
+          <div class="fg"><label>Telefone</label><input type="text" id="cr-phone" class="inp" placeholder="(11) 3000-0000" oninput="maskPhone(this)"></div>
+        </div>
+        <div class="f2">
+          <div class="fg"><label>Nicho / Setor <span class="req">*</span></label><select id="cr-niche" class="inp" onchange="crNicheChange()"><option value="">Selecione...</option></select></div>
+          <div class="fg"><label>Cidade <span class="req">*</span></label><input type="text" id="cr-city" class="inp" placeholder="São Paulo, SP"></div>
+        </div>
+        <div class="fg" id="cr-niche-cw" style="display:none"><label>Descreva o setor <span class="req">*</span></label><input type="text" id="cr-niche-c" class="inp" placeholder="Ex: Energia Solar, Pet Shop..."><div class="fg-hint">Este setor será adicionado à plataforma.</div></div>
+        <div class="fg"><label>Descrição da empresa</label><textarea id="cr-desc" class="inp" rows="2" placeholder="O que sua empresa faz..."></textarea></div>
+        <div class="terms-box"><strong>⚠️ Aviso sobre taxa da plataforma</strong><br>Ao publicar eventos na ConnectWork, sua empresa está ciente e concorda com a cobrança de uma <strong>taxa de 10%</strong> sobre o valor total pago aos profissionais. O profissional sempre recebe o valor integral combinado.</div>
+        <label class="terms-ck"><input type="checkbox" id="cr-terms"> Li e concordo com os termos de uso e com a <strong style="color:var(--acc);margin:0 .22rem">taxa de 10%</strong> cobrada sobre cada evento realizado.</label>
+        <div class="f2">
+          <div class="fg"><label>Senha <span class="req">*</span></label><input type="password" id="cr-pass" class="inp" placeholder="Mín. 6 caracteres"></div>
+          <div class="fg"><label>Confirmar senha <span class="req">*</span></label><input type="password" id="cr-pass2" class="inp" placeholder="Repita"></div>
+        </div>
+        <button class="btn btn-a btn-fw btn-lg" id="cr-btn" onclick="crRegister()">Criar conta empresarial →</button>
+        <div class="auth-links">Já tem conta? <button onclick="go('S-company-login')">Entrar</button> · É profissional? <button onclick="go('S-user-reg')">Cadastro profissional</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== USER DASHBOARD ====== -->
+<div class="screen" id="S-user-dash">
+  <nav class="nav">
+    <div style="display:flex;align-items:center;gap:.7rem">
+      <button class="ham" onclick="sbToggle()"><svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M1 1h16M1 7h16M1 13h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+      <div class="logo"><div class="logo-ic">CW</div>Connect<em>Work</em></div>
+    </div>
+    <div class="nav-r"><span id="ud-navname" style="font-size:.8rem;color:var(--tx2)"></span><button class="btn btn-g btn-sm" onclick="doLogout()">Sair</button></div>
+  </nav>
+  <div class="dash">
+    <aside class="sb" id="ud-sb">
+      <div class="sb-prof">
+        <div class="av avg" id="ud-sb-av">U</div>
+        <div class="sb-name" id="ud-sb-name">—</div>
+        <div class="sb-email" id="ud-sb-email">—</div>
+        <div style="margin-top:.5rem"><span class="pill pu" id="ud-sb-niche" style="font-size:.68rem"></span></div>
+      </div>
+      <nav class="sb-nav">
+        <div class="ni on" id="ni-ev" onclick="udNav('events',this)"><span class="ni-ic">🎯</span><span>Eventos disponíveis</span></div>
+        <div class="ni" id="ni-pf" onclick="udNav('profile',this)"><span class="ni-ic">👤</span><span>Meu perfil</span></div>
+        <div class="ni" id="ni-news" onclick="udNav('news',this)"><span class="ni-ic">📰</span><span>Novidades do nicho</span></div>
+        <div class="ni" id="ni-cal" onclick="udNav('calendar',this)"><span class="ni-ic">📅</span><span>Calendário</span></div>
+      </nav>
+      <div class="sb-foot"><button class="btn btn-g btn-fw" onclick="doLogout()">← Sair da conta</button></div>
+    </aside>
+    <main class="main">
+      <div class="pg on" id="ud-pg-events">
+        <div class="ph"><h2>Eventos disponíveis</h2><p>Encontre oportunidades no seu nicho e candidate-se com um clique</p></div>
+        <div class="mr" id="ud-metrics"></div>
+        <div class="search-row">
+          <div class="search-wrap"><span class="search-ico">🔍</span><input type="text" class="inp" id="ud-search" placeholder="Buscar por título, empresa ou local..." oninput="udRenderEvents()"></div>
+          <select class="inp" id="ud-nf" style="width:auto;min-width:160px" onchange="udRenderEvents()"><option value="">Todos os nichos</option></select>
+        </div>
+        <div id="ud-ev-list"></div>
+      </div>
+      <div class="pg" id="ud-pg-profile">
+        <div class="ph"><h2>Meu perfil</h2><p>Mantenha suas informações atualizadas para aumentar suas chances</p></div>
+        <div class="card" style="max-width:600px">
+          <div class="pf-hero">
+            <div class="av avg av-lg" id="ud-pf-av">U</div>
+            <div class="pf-info"><h2 id="ud-pf-name">—</h2><p id="ud-pf-email">—</p><div id="ud-pf-tags" style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.5rem"></div></div>
+          </div>
+          <div id="ud-pf-al"></div>
+          <div class="f2">
+            <div class="fg"><label>Nome</label><input type="text" id="ud-pf-ni" class="inp"></div>
+            <div class="fg"><label>Telefone</label><input type="text" id="ud-pf-ph" class="inp" oninput="maskPhone(this)"></div>
+          </div>
+          <div class="f2">
+            <div class="fg"><label>Nicho</label><select id="ud-pf-niche" class="inp" onchange="udPfNicheChange()"></select></div>
+            <div class="fg"><label>Cidade</label><input type="text" id="ud-pf-city" class="inp"></div>
+          </div>
+          <div class="fg" id="ud-pf-ncw" style="display:none"><label>Descreva seu nicho</label><input type="text" id="ud-pf-nc" class="inp" placeholder="Ex: Artesanato..."></div>
+          <div class="fg"><label>Habilidades — clique para selecionar</label><div class="skills-wrap" id="ud-pf-sk"></div><div style="display:flex;gap:.5rem;margin-top:.65rem"><input type="text" id="ud-pf-skx" class="inp" placeholder="Adicionar habilidade..." style="flex:1"><button class="btn btn-o btn-sm" onclick="udPfAddSkill()">+ Adicionar</button></div></div>
+          <div class="fg"><label>Currículo atual</label><div id="ud-pf-cv-cur"></div></div>
+          <div class="fg"><label>Substituir currículo</label><div class="fu"><input type="file" id="ud-pf-cvf" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" onchange="handleCV('ud-pf-cvf','ud-pf-cvp','udNewCv')"><div class="fu-ic">📄</div><h4>Arraste ou clique</h4><p>PDF, Word ou imagem · Máx. 5MB</p></div><div id="ud-pf-cvp"></div></div>
+          <button class="btn btn-p" id="ud-save-btn" onclick="udSaveProfile()">💾 Salvar alterações</button>
+        </div>
+      </div>
+      <div class="pg" id="ud-pg-news">
+        <div class="ph"><h2>Novidades do nicho</h2><p id="ud-news-sub">Atualizações da sua área</p></div>
+        <div id="ud-news-list"></div>
+      </div>
+      <div class="pg" id="ud-pg-calendar">
+        <div class="ph"><h2>Calendário de serviços</h2><p>Seus serviços realizados e agendados</p></div>
+        <div class="stabs"><button class="stab on" onclick="udCalTab('all',this)">Todos</button><button class="stab" onclick="udCalTab('upcoming',this)">Próximos</button><button class="stab" onclick="udCalTab('done',this)">Concluídos</button></div>
+        <div class="cal-list" id="ud-cal"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ====== COMPANY DASHBOARD ====== -->
+<div class="screen" id="S-company-dash">
+  <nav class="nav">
+    <div style="display:flex;align-items:center;gap:.7rem">
+      <button class="ham" onclick="sbToggle()"><svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M1 1h16M1 7h16M1 13h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+      <div class="logo"><div class="logo-ic">CW</div>Connect<em>Work</em></div>
+    </div>
+    <div class="nav-r"><span id="cd-navname" style="font-size:.8rem;color:var(--tx2)"></span><button class="btn btn-g btn-sm" onclick="doLogout()">Sair</button></div>
+  </nav>
+  <div class="dash">
+    <aside class="sb" id="cd-sb">
+      <div class="sb-prof">
+        <div class="av ava" id="cd-sb-av">E</div>
+        <div class="sb-name" id="cd-sb-name">—</div>
+        <div class="sb-email" id="cd-sb-email">—</div>
+        <div style="margin-top:.5rem"><span class="pill pc" id="cd-sb-niche" style="font-size:.68rem"></span></div>
+      </div>
+      <nav class="sb-nav">
+        <div class="ni comp on" id="cni-cr" onclick="cdNav('create',this)"><span class="ni-ic">➕</span><span>Criar evento</span></div>
+        <div class="ni comp" id="cni-my" onclick="cdNav('myevents',this)"><span class="ni-ic">📋</span><span>Meus eventos</span></div>
+        <div class="ni comp" id="cni-pf" onclick="cdNav('profile',this)"><span class="ni-ic">🏢</span><span>Perfil da empresa</span></div>
+        <div class="ni comp" id="cni-nw" onclick="cdNav('news',this)"><span class="ni-ic">📰</span><span>Novidades</span></div>
+        <div class="ni comp" id="cni-cl" onclick="cdNav('calendar',this)"><span class="ni-ic">📅</span><span>Calendário</span></div>
+      </nav>
+      <div class="sb-foot"><button class="btn btn-g btn-fw" onclick="doLogout()">← Sair da conta</button></div>
+    </aside>
+    <main class="main">
+      <div class="pg on" id="cd-pg-create">
+        <div class="ph"><h2>Criar novo evento</h2><p>Publique uma vaga e receba currículos de profissionais qualificados</p></div>
+        <div style="max-width:600px"><div class="card">
+          <div id="ce-al"></div>
+          <div class="fg"><label>Título do evento <span class="req">*</span></label><input type="text" id="ce-title" class="inp" placeholder="Ex: Garçons para Casamento Premium"></div>
+          <div class="f2">
+            <div class="fg"><label>Nicho / Área</label><select id="ce-niche" class="inp"></select></div>
+            <div class="fg"><label>Local</label><input type="text" id="ce-local" class="inp" placeholder="São Paulo, SP"></div>
+          </div>
+          <div class="f2">
+            <div class="fg"><label>Data início <span class="req">*</span></label><input type="date" id="ce-start" class="inp"></div>
+            <div class="fg"><label>Data fim <span class="req">*</span></label><input type="date" id="ce-end" class="inp"></div>
+          </div>
+          <div class="f2">
+            <div class="fg"><label>Nº de profissionais <span class="req">*</span></label><input type="number" id="ce-workers" class="inp" min="1" value="1" oninput="ceCalc()"></div>
+            <div class="fg"><label>Nº de dias <span class="req">*</span></label><input type="number" id="ce-days" class="inp" min="1" value="1"></div>
+          </div>
+          <div class="fg"><label>Valor por profissional (todos os dias) R$ <span class="req">*</span></label><input type="number" id="ce-pay" class="inp" min="1" placeholder="Ex: 1400" oninput="ceCalc()"></div>
+          <div class="fg"><label>Descrição e requisitos</label><textarea id="ce-desc" class="inp" rows="3" placeholder="Atividades, requisitos, horários..."></textarea></div>
+          <div id="ce-calc"></div>
+          <div id="ce-terms-wrap"></div>
+          <button class="btn btn-a btn-fw btn-lg" style="margin-top:.85rem" id="ce-btn" onclick="ceCreate()">🚀 Publicar evento</button>
+        </div></div>
+      </div>
+      <div class="pg" id="cd-pg-myevents">
+        <div class="ph"><h2>Meus eventos</h2><p>Gerencie publicações e candidaturas recebidas</p></div>
+        <div class="mr" id="cd-metrics"></div>
+        <div id="cd-ev-list"></div>
+      </div>
+      <div class="pg" id="cd-pg-profile">
+        <div class="ph"><h2>Perfil da empresa</h2><p>Mantenha as informações atualizadas</p></div>
+        <div class="card" style="max-width:600px">
+          <div class="pf-hero">
+            <div class="av ava av-lg" id="cd-pf-av">E</div>
+            <div class="pf-info"><h2 id="cd-pf-name">—</h2><p id="cd-pf-email">—</p><p id="cd-pf-desc" style="font-size:.8rem;color:var(--tx2);margin-top:.3rem"></p></div>
+          </div>
+          <div id="cd-pf-al"></div>
+          <div class="f2">
+            <div class="fg"><label>Nome da empresa</label><input type="text" id="cd-pf-ni" class="inp"></div>
+            <div class="fg"><label>Telefone</label><input type="text" id="cd-pf-ph" class="inp" oninput="maskPhone(this)"></div>
+          </div>
+          <div class="f2">
+            <div class="fg"><label>Nicho / Setor</label><select id="cd-pf-niche" class="inp" onchange="cdPfNicheChange()"></select></div>
+            <div class="fg"><label>Cidade</label><input type="text" id="cd-pf-city" class="inp"></div>
+          </div>
+          <div class="fg" id="cd-pf-ncw" style="display:none"><label>Descreva o setor</label><input type="text" id="cd-pf-nc" class="inp" placeholder="Ex: Energia Solar..."></div>
+          <div class="fg"><label>Descrição</label><textarea id="cd-pf-desc-i" class="inp" rows="3"></textarea></div>
+          <button class="btn btn-a" id="cd-save-btn" onclick="cdSaveProfile()">💾 Salvar alterações</button>
+        </div>
+      </div>
+      <div class="pg" id="cd-pg-news">
+        <div class="ph"><h2>Novidades do nicho</h2><p id="cd-news-sub">Atualizações do seu setor</p></div>
+        <div id="cd-news-list"></div>
+      </div>
+      <div class="pg" id="cd-pg-calendar">
+        <div class="ph"><h2>Calendário de serviços</h2><p>Eventos solicitados e agendados</p></div>
+        <div class="stabs"><button class="stab on" onclick="cdCalTab('all',this)">Todos</button><button class="stab" onclick="cdCalTab('upcoming',this)">Próximos</button><button class="stab" onclick="cdCalTab('done',this)">Concluídos</button></div>
+        <div class="cal-list" id="cd-cal"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!--
+  ⚠️  config.js NÃO está no repositório — está no .gitignore
+  Copie js/config.example.js → js/config.js e preencha suas credenciais.
+-->
+<script src="js/config.js"></script>
+
+<!-- Camada de API (único ponto de contato com o Supabase) -->
+<script src="js/api.js"></script>
+
+<!-- Lógica da interface -->
+<script src="js/app.js"></script>
+
+</body>
+</html>

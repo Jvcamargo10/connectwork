@@ -5,8 +5,7 @@
 # ──────────────────────────────────────────
 #  🔒 CREDENCIAIS — NUNCA COMMITAR
 # ──────────────────────────────────────────
-config.js             # contém URL e chave do Supabase
-js/config.js          # idem, caso arquivos sejam movidos para js/
+js/config.js          # versão antiga — manter fora do repo se existir
 .env
 .env.local
 .env.*.local

@@ -656,7 +656,7 @@ async function cdRenderEvents() {
       <div class="ms">currículos recebidos</div>
     </div>`;
 
-  if (!evs?.length) { el.innerHTML = '<div class="empty"><div class="ei">📋</div><p>Nenhum evento publicado ainda.</p><button class="btn btn-a" onclick="cdNav('create',document.getElementById('cni-cr'))">Criar primeiro evento →</button></div>'; return; }
+  if (!evs?.length) { el.innerHTML = `<div class="empty"><div class="ei">📋</div><p>Nenhum evento publicado ainda.</p><button class="btn btn-a" onclick="cdNav('create',document.getElementById('cni-cr'))">Criar primeiro evento →</button></div>`; return; }
   el.innerHTML = evs.map(ev => {
     const { fee } = calcP(ev.workers, ev.pay_per_worker);
     return `<div class="ev-card click" onclick="cdOpenEv('${ev.id}')">

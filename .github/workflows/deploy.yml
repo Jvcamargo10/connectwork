@@ -1,0 +1,40 @@
+name: Deploy ConnectWork to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Gerar config.js com credenciais do Supabase
+        run: |
+          cat > config.js << 'ENDOFFILE'
+          const SUPABASE_URL      = 'SUPABASE_URL_PLACEHOLDER';
+          const SUPABASE_ANON_KEY = 'SUPABASE_ANON_KEY_PLACEHOLDER';
+          window._sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+            auth: {
+              persistSession:     true,
+              autoRefreshToken:   true,
+              detectSessionInUrl: false,
+            },
+          });
+          ENDOFFILE
+          sed -i "s|SUPABASE_URL_PLACEHOLDER|${{ secrets.SUPABASE_URL }}|g" config.js
+          sed -i "s|SUPABASE_ANON_KEY_PLACEHOLDER|${{ secrets.SUPABASE_ANON_KEY }}|g" config.js
+
+      - name: Deploy para GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          exclude_assets: '.github,config.example.js,schema.sql,README.md,.gitignore'
